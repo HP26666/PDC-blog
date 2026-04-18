@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "首页",
+    "notes": "学习笔记",
+    "projects": "项目展示",
+    "teaching": "教学资源"
+  },
+  "hero": {
+    "greeting": "你好，我是",
+    "name": "氕氘氚",
+    "subtitle": "计算机科学大三学生 & 技术负责人",
+    "tagline": "探索代码与创造力的融合",
+    "cta": "查看项目"
+  },
+  "sections": {
+    "projects": "项目展示",
+    "notes": "学习笔记",
+    "teaching": "教学资源",
+    "about": "关于我"
+  },
+  "projects": {
+    "medDualBrain": {
+      "title": "Med-DualBrain",
+      "desc": "面向院外预问诊（家庭/通勤场景）的多模态数字人系统，采用 RAG 和 Wan2.2-S2V 技术。AI 驱动的医疗咨询数字人界面。"
+    },
+    "virtualTryon": {
+      "title": "虚拟试穿 SaaS",
+      "desc": "3D 建模与布料仿真平台。基于物理渲染的实时服装可视化。"
+    }
+  },
+  "notes": {
+    "compilers": {
+      "title": "编译原理 - 7天学习计划",
+      "desc": "涵盖词法分析、语法分析、语义分析和代码生成的全面学习计划。"
+    },
+    "softwareEng": {
+      "title": "软件工程考试题库",
+      "desc": "涵盖软件生命周期、设计模式和测试方法论的重点考试题目合集。"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 氕氘氚 | Fusion-Core 博客",
+    "powered": "由 React & Three.js 驱动"
+  },
+  "lang": {
+    "toggle": "EN"
+  }
+}

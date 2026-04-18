@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "home": "Home",
+    "notes": "Study Notes",
+    "projects": "Projects",
+    "teaching": "Teaching"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "氕氘氚",
+    "subtitle": "Junior CS Student & Tech Lead",
+    "tagline": "Exploring the fusion of code and creativity",
+    "cta": "View Projects"
+  },
+  "sections": {
+    "projects": "Projects Showcase",
+    "notes": "Study Notes",
+    "teaching": "Teaching Resources",
+    "about": "About Me"
+  },
+  "projects": {
+    "medDualBrain": {
+      "title": "Med-DualBrain",
+      "desc": "Multi-modal digital human system for out-of-hospital pre-consultation (Home/Commuting), using RAG and Wan2.2-S2V. AI-powered medical consultation with digital human interface."
+    },
+    "virtualTryon": {
+      "title": "Virtual Try-on SaaS",
+      "desc": "3D modeling and cloth simulation platform. Real-time garment visualization with physics-based rendering."
+    }
+  },
+  "notes": {
+    "compilers": {
+      "title": "Principles of Compilers - 7 Day Plan",
+      "desc": "Comprehensive study plan covering lexical analysis, syntax analysis, semantic analysis, and code generation."
+    },
+    "softwareEng": {
+      "title": "Software Engineering Exam Questions",
+      "desc": "Collection of key exam questions covering software lifecycle, design patterns, and testing methodologies."
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 氕氘氚 | Fusion-Core Blog",
+    "powered": "Powered by React & Three.js"
+  },
+  "lang": {
+    "toggle": "中文"
+  }
+}
