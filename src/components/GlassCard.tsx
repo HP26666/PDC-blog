@@ -57,7 +57,7 @@ export default function GlassCard({ children, className = '', glowColor = 'plasm
         <div
           className="absolute left-0 right-0 h-[1px] z-10 pointer-events-none"
           style={{
-            top: `${((Date.now() / 20) % 100)}%`,
+            top: 0,
             background: `linear-gradient(90deg, transparent, rgba(${glowRgb}, 0.4), transparent)`,
             animation: 'hScan 3s linear infinite',
           }}

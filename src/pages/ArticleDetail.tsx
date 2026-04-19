@@ -5,6 +5,14 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 
+const VALID_SLUGS = new Set([
+  'llm-vs-coding-agent',
+  'claude-code-guide',
+  'trae-guide',
+  'dev-environment-setup',
+  'coding-agent-examples',
+]);
+
 const markdownFiles: Record<string, () => Promise<string>> = {
   'llm-vs-coding-agent': () =>
     fetch(new URL('../content/llm-vs-coding-agent.md', import.meta.url).href).then((r) => r.text()),
@@ -24,7 +32,8 @@ export default function ArticleDetail() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loader = slug ? markdownFiles[slug] : null;
+    const validSlug = slug && VALID_SLUGS.has(slug) ? slug : null;
+    const loader = validSlug ? markdownFiles[validSlug] : null;
     if (loader) {
       loader().then((text) => {
         setContent(text);
