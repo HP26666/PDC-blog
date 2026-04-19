@@ -6,11 +6,19 @@ import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 
 const markdownFiles: Record<string, () => Promise<string>> = {
-  compilers: () => fetch(new URL('../content/compilers.md', import.meta.url).href).then((r) => r.text()),
-  'software-engineering': () => fetch(new URL('../content/software-engineering.md', import.meta.url).href).then((r) => r.text()),
+  'llm-vs-coding-agent': () =>
+    fetch(new URL('../content/llm-vs-coding-agent.md', import.meta.url).href).then((r) => r.text()),
+  'claude-code-guide': () =>
+    fetch(new URL('../content/claude-code-guide.md', import.meta.url).href).then((r) => r.text()),
+  'trae-guide': () =>
+    fetch(new URL('../content/trae-guide.md', import.meta.url).href).then((r) => r.text()),
+  'dev-environment-setup': () =>
+    fetch(new URL('../content/dev-environment-setup.md', import.meta.url).href).then((r) => r.text()),
+  'coding-agent-examples': () =>
+    fetch(new URL('../content/coding-agent-examples.md', import.meta.url).href).then((r) => r.text()),
 };
 
-export default function NoteDetail() {
+export default function ArticleDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(true);
@@ -23,7 +31,7 @@ export default function NoteDetail() {
         setLoading(false);
       });
     } else {
-      setContent('# 404\nNote not found.');
+      setContent('# 404\nArticle not found.');
       setLoading(false);
     }
   }, [slug]);
@@ -35,11 +43,11 @@ export default function NoteDetail() {
 
       <div className="relative z-10">
         <Link
-          to="/notes"
+          to="/articles"
           className="inline-flex items-center gap-1 text-sm text-plasma hover:text-plasma-dim transition-colors mb-6 group"
         >
           <span className="group-hover:-translate-x-1 transition-transform">←</span>
-          Back to Notes
+          Back to Articles
         </Link>
 
         {loading ? (
@@ -54,7 +62,7 @@ export default function NoteDetail() {
                 animationDuration: '1.5s',
               }} />
             </div>
-            <span className="text-sm font-mono text-gray-500">Loading...</span>
+            <span className="text-sm font-mono text-gray-500">Loading article...</span>
           </div>
         ) : (
           <motion.article
