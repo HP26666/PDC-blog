@@ -5,7 +5,7 @@ import FusionScene from './FusionScene';
 
 export default function FusionCore() {
   return (
-    <div className="w-full h-[500px] md:h-[600px] relative">
+    <div className="w-full h-[320px] sm:h-[440px] md:h-[600px] relative">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 60 }}
         style={{ background: 'transparent' }}

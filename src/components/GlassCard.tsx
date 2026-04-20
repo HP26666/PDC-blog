@@ -34,7 +34,7 @@ export default function GlassCard({ children, className = '', glowColor = 'plasm
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className={`glass rounded-xl p-6 transition-all duration-300 ${className}`}
+      className={`glass rounded-xl p-4 sm:p-6 transition-all duration-300 ${className}`}
       style={isHovered ? {
         background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, ${spotlightColor}, var(--bg-glass) 70%)`,
         borderColor: hoverBorderColor,

@@ -12,11 +12,11 @@ export default function Notes() {
   const { t } = useTranslation();
 
   return (
-    <div className="pt-24 pb-16 max-w-4xl mx-auto px-4">
+    <div className="pt-20 sm:pt-24 pb-16 max-w-4xl mx-auto px-4">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-4xl font-bold mb-2 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
+        className="text-3xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
       >
         {t('sections.notes')}
       </motion.h1>

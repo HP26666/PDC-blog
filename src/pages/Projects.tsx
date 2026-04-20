@@ -30,11 +30,11 @@ export default function Projects() {
   ];
 
   return (
-    <div className="pt-24 pb-16 max-w-5xl mx-auto px-4">
+    <div className="pt-20 sm:pt-24 pb-16 max-w-5xl mx-auto px-4">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-4xl font-bold mb-2 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
+        className="text-3xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
       >
         {t('sections.projects')}
       </motion.h1>
@@ -55,17 +55,17 @@ export default function Projects() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.15 }}
           >
-            <GlassCard glowColor={proj.color} className="p-8">
-              <div className="flex flex-col md:flex-row gap-6">
+            <GlassCard glowColor={proj.color} className="p-4 sm:p-8">
+              <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
                 {/* Left gradient vertical line */}
                 <div className={`hidden md:block w-[3px] rounded-full self-stretch ${
                   proj.color === 'plasma'
                     ? 'bg-gradient-to-b from-plasma to-energy'
                     : 'bg-gradient-to-b from-energy to-plasma'
                 }`} />
-                <div className="text-5xl">{proj.icon}</div>
-                <div className="flex-1">
-                  <h2 className={`text-2xl font-bold mb-3 ${proj.color === 'plasma' ? 'text-plasma' : 'text-energy'}`}>
+                <div className="text-4xl sm:text-5xl">{proj.icon}</div>
+                <div className="flex-1 min-w-0">
+                  <h2 className={`text-xl sm:text-2xl font-bold mb-3 ${proj.color === 'plasma' ? 'text-plasma' : 'text-energy'}`}>
                     {t(`projects.${proj.key}.title`)}
                   </h2>
                   <p className="text-fg-secondary leading-relaxed mb-4 line-clamp-3" title={t(`projects.${proj.key}.desc`)}>
@@ -85,7 +85,7 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-3">
+                  <div className="flex flex-wrap gap-3">
                     {proj.links.github && (
                       <a
                         href={proj.links.github}

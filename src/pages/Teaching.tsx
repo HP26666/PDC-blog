@@ -32,11 +32,11 @@ export default function Teaching() {
   const isZh = t('nav.home') === '首页';
 
   return (
-    <div className="pt-24 pb-16 max-w-5xl mx-auto px-4">
+    <div className="pt-20 sm:pt-24 pb-16 max-w-5xl mx-auto px-4">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-4xl font-bold mb-2 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
+        className="text-3xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
       >
         {t('sections.teaching')}
       </motion.h1>
@@ -81,7 +81,7 @@ export default function Teaching() {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-2 flex-nowrap overflow-hidden mt-auto">
+                <div className="flex gap-2 flex-wrap mt-auto">
                   {res.tags.map((tag) => (
                     <span
                       key={tag}

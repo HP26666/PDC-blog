@@ -24,10 +24,10 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-4 mt-[-60px]">
+        <div className="relative z-10 text-center px-4 mt-[-20px] sm:mt-[-40px] md:mt-[-60px]">
           <motion.p
             {...fadeUp}
-            className="text-sm md:text-base text-plasma/80 font-mono mb-2"
+            className="text-xs sm:text-sm md:text-base text-plasma/80 font-mono mb-2"
           >
             {t('hero.greeting')}
           </motion.p>
@@ -35,21 +35,21 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent text-glow-plasma"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent text-glow-plasma"
           >
             {t('hero.name')}
           </motion.h1>
           <motion.p
             {...fadeUp}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-fg-secondary mb-4"
+            className="text-base sm:text-lg md:text-xl text-fg-secondary mb-4"
           >
             {t('hero.subtitle')}
           </motion.p>
           <motion.div
             {...fadeUp}
             transition={{ delay: 0.6 }}
-            className="text-base md:text-lg text-fg-secondary font-mono h-8 mb-8"
+            className="text-sm sm:text-base md:text-lg text-fg-secondary font-mono h-8 mb-8"
           >
             <Typewriter
               texts={[
@@ -90,12 +90,12 @@ export default function Home() {
       <div className="section-divider" />
 
       {/* Projects Preview */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section className="max-w-6xl mx-auto px-4 py-16 sm:py-20">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
+          className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
         >
           {t('sections.projects')}
         </motion.h2>
@@ -116,7 +116,7 @@ export default function Home() {
               <p className="text-fg-secondary text-sm leading-relaxed line-clamp-3" title={t('projects.bookManagement.desc')}>
                 {t('projects.bookManagement.desc')}
               </p>
-              <div className="mt-auto pt-4 flex gap-2 flex-nowrap overflow-hidden">
+              <div className="mt-auto pt-4 flex gap-2 flex-wrap">
                 {['Spring Boot 3', 'Vue 3', 'PostgreSQL', 'Docker'].map((tag) => (
                   <span key={tag} className="px-2 py-0.5 rounded-md text-xs font-mono bg-plasma/10 text-plasma border border-plasma/20 whitespace-nowrap">
                     {tag}
@@ -141,7 +141,7 @@ export default function Home() {
               <p className="text-fg-secondary text-sm leading-relaxed line-clamp-3" title={t('projects.eventManagement.desc')}>
                 {t('projects.eventManagement.desc')}
               </p>
-              <div className="mt-auto pt-4 flex gap-2 flex-nowrap overflow-hidden">
+              <div className="mt-auto pt-4 flex gap-2 flex-wrap">
                 {['Spring Boot', 'Vue 3', 'Element Plus', 'Uni-App'].map((tag) => (
                   <span key={tag} className="px-2 py-0.5 rounded-md text-xs font-mono bg-energy/10 text-energy border border-energy/20 whitespace-nowrap">
                     {tag}
@@ -166,12 +166,12 @@ export default function Home() {
       <div className="section-divider" />
 
       {/* Study Notes Preview */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section className="max-w-6xl mx-auto px-4 py-16 sm:py-20">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
+          className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
         >
           {t('sections.notes')}
         </motion.h2>
