@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { ReactNode, useRef, useState } from 'react';
+import { ReactNode, useState } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface Props {
   children: ReactNode;
@@ -8,62 +9,39 @@ interface Props {
 }
 
 export default function GlassCard({ children, className = '', glowColor = 'plasma' }: Props) {
-  const cardRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const { theme } = useTheme();
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+  const spotlightColor = theme === 'dark'
+    ? (glowColor === 'plasma' ? 'rgba(0,210,255,0.08)' : 'rgba(157,80,187,0.08)')
+    : (glowColor === 'plasma' ? 'rgba(0,210,255,0.06)' : 'rgba(157,80,187,0.06)');
 
-  const glowRgb = glowColor === 'plasma' ? '0, 210, 255' : '157, 80, 187';
+  const hoverBorderColor = glowColor === 'plasma'
+    ? 'rgba(0,210,255,0.3)' : 'rgba(157,80,187,0.3)';
+
+  const hoverShadow = glowColor === 'plasma'
+    ? '0 0 24px rgba(0,210,255,0.1), 0 8px 32px rgba(0,0,0,0.15)'
+    : '0 0 24px rgba(157,80,187,0.1), 0 8px 32px rgba(0,0,0,0.15)';
 
   return (
     <motion.div
-      ref={cardRef}
-      whileHover={{ y: -6, scale: 1.02 }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`relative glass rounded-xl p-6 transition-all duration-300 overflow-hidden tech-corner rgb-border ${className}`}
-      style={{
-        borderColor: isHovered ? `rgba(${glowRgb}, 0.4)` : undefined,
-        boxShadow: isHovered
-          ? `0 0 30px rgba(${glowRgb}, 0.15), 0 0 60px rgba(${glowRgb}, 0.05), inset 0 0 30px rgba(${glowRgb}, 0.03)`
-          : undefined,
+      whileHover={{ y: -4, scale: 1.01 }}
+      transition={{ duration: 0.3 }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
       }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className={`glass rounded-xl p-6 transition-all duration-300 ${className}`}
+      style={isHovered ? {
+        background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, ${spotlightColor}, var(--bg-glass) 70%)`,
+        borderColor: hoverBorderColor,
+        boxShadow: hoverShadow,
+      } : undefined}
     >
-      {/* Mouse-following spotlight */}
-      {isHovered && (
-        <div
-          className="absolute pointer-events-none z-0 transition-opacity duration-300"
-          style={{
-            left: mousePos.x - 100,
-            top: mousePos.y - 100,
-            width: 200,
-            height: 200,
-            background: `radial-gradient(circle, rgba(${glowRgb}, 0.12) 0%, transparent 70%)`,
-          }}
-        />
-      )}
-      {/* Top scan line */}
-      {isHovered && (
-        <div
-          className="absolute left-0 right-0 h-[1px] z-10 pointer-events-none"
-          style={{
-            top: 0,
-            background: `linear-gradient(90deg, transparent, rgba(${glowRgb}, 0.4), transparent)`,
-            animation: 'hScan 3s linear infinite',
-          }}
-        />
-      )}
-      <div className="relative z-10">{children}</div>
+      {children}
     </motion.div>
   );
 }

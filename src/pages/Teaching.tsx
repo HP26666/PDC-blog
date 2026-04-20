@@ -27,74 +27,74 @@ export default function Teaching() {
       tags: ['Data Analysis', 'Project Evaluation', 'Best Practices'],
       badge: '分析报告',
     },
-    {
-      title: 'AI Coding Tools',
-      titleZh: 'AI 编程工具',
-      desc: 'Guide to using AI-powered coding assistants and agents effectively.',
-      descZh: '高效使用 AI 编程助手和智能体的指南。',
-      icon: '🔮',
-      tags: ['Claude Code', 'Copilot', 'Trae'],
-    },
   ];
 
   const isZh = t('nav.home') === '首页';
 
   return (
-    <div className="pt-24 pb-16 max-w-5xl mx-auto px-4 relative">
-      {/* Background decoration */}
-      <div className="absolute inset-0 cyber-grid pointer-events-none opacity-50" />
+    <div className="pt-24 pb-16 max-w-5xl mx-auto px-4">
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-4xl font-bold mb-2 bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent"
+      >
+        {t('sections.teaching')}
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="text-fg-secondary mb-10"
+      >
+        {isZh ? '教学材料与学习资源。' : 'Teaching materials and learning resources.'}
+      </motion.p>
 
-      <div className="relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-10"
-        >
-          <div className="flex items-center gap-3 mb-2">
-            <div className="h-8 w-1 rounded-full bg-gradient-to-b from-plasma to-energy" />
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent">
-              {t('sections.teaching')}
-            </h1>
-          </div>
-          <p className="text-gray-400 ml-4 pl-1">
-            {isZh ? '教学材料与学习资源。' : 'Teaching materials and learning resources.'}
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {resources.map((res, i) => (
-            <motion.div
-              key={res.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <GlassCard glowColor={i % 2 === 0 ? 'plasma' : 'energy'}>
-                <span className="text-3xl block mb-3">{res.icon}</span>
-                <h3 className={`text-lg font-bold mb-2 ${i % 2 === 0 ? 'text-plasma' : 'text-energy'}`}>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {resources.map((res, i) => (
+          <motion.div
+            key={res.slug}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            className="h-full"
+          >
+            <Link to={`/teaching/${res.slug}`} className="block h-full">
+              <GlassCard glowColor={i % 2 === 0 ? 'plasma' : 'energy'} className="h-full flex flex-col relative">
+                {/* Badge */}
+                <span className="absolute top-3 right-3 px-2 py-0.5 rounded-md text-[10px] font-mono bg-gradient-to-r from-plasma/20 to-energy/20 text-fg-secondary border border-[var(--border-glass)]">
+                  {res.badge}
+                </span>
+                {/* Icon with gradient background */}
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-plasma/20 to-energy/20 flex items-center justify-center mb-3">
+                  <span className="text-2xl">{res.icon}</span>
+                </div>
+                <h3 className="text-lg font-bold text-fg mb-2 line-clamp-2">
                   {isZh ? res.titleZh : res.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">
-                  {isZh ? res.descZh : res.desc}
-                </p>
-                <div className="flex gap-2 flex-wrap">
+                <div className="relative group mb-4">
+                  <p className="text-fg-secondary text-sm line-clamp-2">
+                    {isZh ? res.descZh : res.desc}
+                  </p>
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 w-64 pointer-events-none">
+                    <div className="tooltip-card rounded-lg px-3 py-2 text-xs shadow-lg">
+                      {isZh ? res.descZh : res.desc}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-2 flex-nowrap overflow-hidden mt-auto">
                   {res.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`px-2 py-0.5 rounded-md text-xs font-mono border ${
-                        i % 2 === 0
-                          ? 'bg-plasma/10 text-plasma border-plasma/20'
-                          : 'bg-energy/10 text-energy border-energy/20'
-                      }`}
+                      className="px-2 py-0.5 rounded-md text-xs font-mono bg-[var(--bg-glass)] text-fg-muted border border-[var(--border-glass)] whitespace-nowrap"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
               </GlassCard>
-            </motion.div>
-          ))}
-        </div>
+            </Link>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

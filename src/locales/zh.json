@@ -3,8 +3,7 @@
     "home": "首页",
     "notes": "学习笔记",
     "projects": "项目展示",
-    "teaching": "教学资源",
-    "articles": "AI & 智能体"
+    "teaching": "教学资源"
   },
   "hero": {
     "greeting": "你好，我是",
@@ -17,9 +16,7 @@
     "projects": "项目展示",
     "notes": "学习笔记",
     "teaching": "教学资源",
-    "about": "关于我",
-    "articles": "AI & 编程智能体",
-    "featured": "精选文章"
+    "about": "关于我"
   },
   "projects": {
     "bookManagement": {
@@ -43,29 +40,6 @@
     "softwareEng": {
       "title": "软件工程考试题库",
       "desc": "涵盖软件生命周期、设计模式和测试方法论的重点考试题目合集。"
-    }
-  },
-  "articles": {
-    "subtitle": "关于 AI 编程工具、智能体和现代开发工作流的指南与教程。",
-    "llmVsAgent": {
-      "title": "LLM 与 Coding Agent 的区别",
-      "desc": "深入理解大语言模型和 AI 编程智能体的根本区别。了解何时使用它们以及它们如何协同工作。"
-    },
-    "claudeCode": {
-      "title": "Claude Code 使用指南",
-      "desc": "完整的 Claude Code 安装和使用指南 — Anthropic 开发的终端 AI 编程智能体。包含配置、示例和最佳实践。"
-    },
-    "traeGuide": {
-      "title": "Trae AI IDE 使用指南",
-      "desc": "字节跳动出品的 AI 编程 IDE Trae 的详细使用教程。涵盖 Agent 模式、内联补全和多模型支持等功能。"
-    },
-    "devEnvSetup": {
-      "title": "开发环境搭建指南",
-      "desc": "为 AI 辅助编程搭建开发环境的完整指南。涵盖 Node.js、Python、Git、VS Code 等工具的安装配置。"
-    },
-    "codingExamples": {
-      "title": "编程智能体实战案例",
-      "desc": "使用 AI 编程智能体的真实编程案例。包含 REST API、React 组件、Python 数据管道和全栈功能开发实例。"
     }
   },
   "footer": {

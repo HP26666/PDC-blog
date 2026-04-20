@@ -65,45 +65,36 @@ export default function NoteDetail() {
   }, [slug]);
 
   return (
-    <div className="pt-24 pb-16 max-w-3xl mx-auto px-4 relative">
-      {/* Background grid */}
-      <div className="fixed inset-0 cyber-grid pointer-events-none opacity-30" />
+    <div className="pt-24 pb-16 max-w-3xl mx-auto px-4">
+      <Link
+        to="/notes"
+        className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm text-plasma bg-plasma/10 border border-plasma/20 hover:bg-plasma/20 transition-all duration-200 mb-6 group"
+      >
+        <span className="transition-transform duration-200 group-hover:-translate-x-0.5">←</span>
+        Back to Notes
+      </Link>
 
-      <div className="relative z-10">
-        <Link
-          to="/notes"
-          className="inline-flex items-center gap-1 text-sm text-plasma hover:text-plasma-dim transition-colors mb-6 group"
+      {loading ? (
+        <div className="flex justify-center py-20 gap-2">
+          <span className="w-2 h-2 rounded-full bg-plasma" style={{ animation: 'pulse-dot 1.4s ease-in-out infinite' }} />
+          <span className="w-2 h-2 rounded-full bg-plasma" style={{ animation: 'pulse-dot 1.4s ease-in-out 0.2s infinite' }} />
+          <span className="w-2 h-2 rounded-full bg-plasma" style={{ animation: 'pulse-dot 1.4s ease-in-out 0.4s infinite' }} />
+        </div>
+      ) : (
+        <motion.article
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="prose dark:prose-invert prose-fusion max-w-none border-l-2 border-plasma/10 pl-6"
         >
-          <span className="group-hover:-translate-x-1 transition-transform">←</span>
-          Back to Notes
-        </Link>
-
-        {loading ? (
-          <div className="flex flex-col items-center justify-center py-20 gap-4">
-            <div className="relative">
-              <div className="w-12 h-12 border-2 border-plasma/30 rounded-full animate-spin" style={{
-                borderTopColor: '#00d2ff',
-              }} />
-              <div className="absolute inset-0 w-12 h-12 border-2 border-energy/20 rounded-full animate-spin" style={{
-                borderBottomColor: '#9d50bb',
-                animationDirection: 'reverse',
-                animationDuration: '1.5s',
-              }} />
-            </div>
-            <span className="text-sm font-mono text-gray-500">Loading...</span>
-          </div>
-        ) : (
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="prose prose-invert prose-fusion max-w-none glass rounded-xl p-8 border-glow-animate"
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight, rehypeRaw]}
+            components={{ code: CodeBlock }}
           >
-            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
-              {content}
-            </ReactMarkdown>
-          </motion.article>
-        )}
-      </div>
+            {content}
+          </ReactMarkdown>
+        </motion.article>
+      )}
     </div>
   );
 }

@@ -3,8 +3,7 @@
     "home": "Home",
     "notes": "Study Notes",
     "projects": "Projects",
-    "teaching": "Teaching",
-    "articles": "AI & Agents"
+    "teaching": "Teaching"
   },
   "hero": {
     "greeting": "Hello, I'm",
@@ -17,9 +16,7 @@
     "projects": "Projects Showcase",
     "notes": "Study Notes",
     "teaching": "Teaching Resources",
-    "about": "About Me",
-    "articles": "AI & Coding Agents",
-    "featured": "Featured Articles"
+    "about": "About Me"
   },
   "projects": {
     "bookManagement": {
@@ -43,29 +40,6 @@
     "softwareEng": {
       "title": "Software Engineering Exam Questions",
       "desc": "Collection of key exam questions covering software lifecycle, design patterns, and testing methodologies."
-    }
-  },
-  "articles": {
-    "subtitle": "Guides and tutorials about AI coding tools, agents, and modern development workflows.",
-    "llmVsAgent": {
-      "title": "LLM vs Coding Agent",
-      "desc": "Understand the fundamental differences between Large Language Models and AI Coding Agents. Learn when to use each and how they work together."
-    },
-    "claudeCode": {
-      "title": "Claude Code Usage Guide",
-      "desc": "Complete guide to installing and using Claude Code — the terminal-based AI coding agent by Anthropic. Includes setup, examples, and best practices."
-    },
-    "traeGuide": {
-      "title": "Trae AI IDE Guide",
-      "desc": "Step-by-step guide to using Trae, the AI-powered IDE by ByteDance. Features Agent mode, inline completions, and multi-model support."
-    },
-    "devEnvSetup": {
-      "title": "Dev Environment Setup",
-      "desc": "Comprehensive guide to setting up your development environment for AI-assisted coding. Covers Node.js, Python, Git, VS Code, and more."
-    },
-    "codingExamples": {
-      "title": "Coding Agent Examples",
-      "desc": "Real-world programming examples using AI coding agents. Includes REST APIs, React components, Python pipelines, and full-stack features."
     }
   },
   "footer": {
