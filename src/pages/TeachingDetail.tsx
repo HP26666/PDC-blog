@@ -228,7 +228,7 @@ export default function TeachingDetail() {
 
   if (!resource) {
     return (
-      <div className="pt-24 pb-16 max-w-3xl mx-auto px-4">
+      <div className="pt-20 sm:pt-24 pb-16 max-w-3xl mx-auto px-4">
         <Link to="/teaching" className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm text-plasma bg-plasma/10 border border-plasma/20 hover:bg-plasma/20 transition-all duration-200 mb-6 group">
           <span className="transition-transform duration-200 group-hover:-translate-x-0.5">←</span>
           Back to Teaching
@@ -239,7 +239,7 @@ export default function TeachingDetail() {
   }
 
   return (
-    <div className="pt-24 pb-16 max-w-3xl mx-auto px-4">
+    <div className="pt-20 sm:pt-24 pb-16 max-w-3xl mx-auto px-4">
       <Link to="/teaching" className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm text-plasma bg-plasma/10 border border-plasma/20 hover:bg-plasma/20 transition-all duration-200 mb-6 group">
         <span className="transition-transform duration-200 group-hover:-translate-x-0.5">←</span>
         返回教学资源
@@ -250,9 +250,9 @@ export default function TeachingDetail() {
         animate={{ opacity: 1, y: 0 }}
       >
         <GlassCard className="mb-8">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-4xl">{resource.icon}</span>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4">
+            <span className="text-3xl sm:text-4xl">{resource.icon}</span>
+            <h1 className="text-xl sm:text-3xl font-bold bg-gradient-to-r from-plasma to-energy bg-clip-text text-transparent leading-tight">
               {resource.title}
             </h1>
           </div>
@@ -269,7 +269,7 @@ export default function TeachingDetail() {
         </GlassCard>
 
         <GlassCard>
-          <article className="prose dark:prose-invert prose-fusion max-w-none border-l-2 border-plasma/10 pl-6">
+          <article className="prose dark:prose-invert prose-fusion max-w-none border-l-2 border-plasma/10 pl-3 sm:pl-6">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeHighlight, rehypeRaw]}

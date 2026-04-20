@@ -65,7 +65,7 @@ export default function NoteDetail() {
   }, [slug]);
 
   return (
-    <div className="pt-24 pb-16 max-w-3xl mx-auto px-4">
+    <div className="pt-20 sm:pt-24 pb-16 max-w-3xl mx-auto px-4">
       <Link
         to="/notes"
         className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm text-plasma bg-plasma/10 border border-plasma/20 hover:bg-plasma/20 transition-all duration-200 mb-6 group"
@@ -84,7 +84,7 @@ export default function NoteDetail() {
         <motion.article
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="prose dark:prose-invert prose-fusion max-w-none border-l-2 border-plasma/10 pl-6"
+          className="prose dark:prose-invert prose-fusion max-w-none border-l-2 border-plasma/10 pl-3 sm:pl-6"
         >
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}

@@ -298,6 +298,8 @@ body::after {
   background: var(--prose-pre-bg) !important;
   border: 1px solid rgba(0, 210, 255, 0.15);
   border-radius: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .prose code {
@@ -306,12 +308,26 @@ body::after {
   padding: 0.15em 0.4em;
   border-radius: 4px;
   font-size: 0.875em;
+  word-break: break-word;
 }
 
 .prose pre code {
   background: transparent;
   padding: 0;
   color: inherit;
+  word-break: normal;
+}
+
+.prose table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ============================================
@@ -357,5 +373,43 @@ footer {
   }
   .aurora-bg::before {
     animation: none !important;
+  }
+}
+
+/* ============================================
+   Mobile / Responsive Utilities
+   ============================================ */
+
+/* Ensure touch targets are large enough */
+@media (max-width: 767px) {
+  /* Improve tap target size for nav links */
+  nav a, nav button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Prevent horizontal scroll from wide content */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Reduce aurora animation complexity on small screens */
+  .aurora-bg::before {
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 30%, var(--aurora-1) 0%, transparent 70%),
+      radial-gradient(ellipse 70% 50% at 75% 20%, var(--aurora-2) 0%, transparent 70%);
+  }
+
+  /* Smaller grid overlay for mobile */
+  .grid-overlay {
+    background-size: 50px 50px;
+  }
+}
+
+/* Landscape phone adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .aurora-bg::before {
+    animation: none;
   }
 }
