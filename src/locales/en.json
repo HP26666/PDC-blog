@@ -22,13 +22,17 @@
     "featured": "Featured Articles"
   },
   "projects": {
-    "medDualBrain": {
-      "title": "Med-DualBrain",
-      "desc": "Multi-modal digital human system for out-of-hospital pre-consultation (Home/Commuting), using RAG and Wan2.2-S2V. AI-powered medical consultation with digital human interface."
+    "bookManagement": {
+      "title": "Book Management System",
+      "desc": "A book management system based on Spring Boot 3 + Vue 3 + PostgreSQL + Uni-App, supporting PC Web admin and WeChat Mini Program user access, with Docker Compose deployment."
     },
-    "virtualTryon": {
-      "title": "Virtual Try-on SaaS",
-      "desc": "3D modeling and cloth simulation platform. Real-time garment visualization with physics-based rendering."
+    "eventManagement": {
+      "title": "Campus Event Management",
+      "desc": "A campus event management system (CampusNeuro) based on Spring Boot + Vue 3 + Element Plus + uni-app, covering event publishing, registration, and review workflows."
+    },
+    "studentWorker": {
+      "title": "Student Affairs System",
+      "desc": "A student work management system for college scenarios, based on Spring Boot 3 + Vue 3 + PostgreSQL, with Docker Compose deployment and mobile-responsive admin interface."
     }
   },
   "notes": {

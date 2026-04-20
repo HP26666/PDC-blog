@@ -82,14 +82,14 @@ export default function Home() {
           <motion.p
             {...fadeUp}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-400 mb-4"
+            className="text-lg md:text-xl text-fg-secondary mb-4"
           >
             {t('hero.subtitle')}
           </motion.p>
           <motion.div
             {...fadeUp}
             transition={{ delay: 0.6 }}
-            className="text-base md:text-lg text-gray-300 font-mono h-8 mb-8"
+            className="text-base md:text-lg text-fg-secondary font-mono h-8 mb-8"
           >
             <Typewriter
               texts={[
@@ -105,7 +105,9 @@ export default function Home() {
               to="/projects"
               className="inline-block px-8 py-3 rounded-xl font-semibold text-sm bg-gradient-to-r from-plasma to-energy text-white hover:opacity-90 transition-all glow-plasma hover:shadow-[0_0_30px_rgba(0,210,255,0.3)]"
             >
-              {t('hero.cta')}
+              {/* Pulse ring */}
+              <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-plasma to-energy opacity-0 group-hover:opacity-100" style={{ animation: 'pulse-ring 1.5s cubic-bezier(0, 0, 0.2, 1) infinite' }} />
+              <span className="relative">{t('hero.cta')}</span>
             </Link>
             <Link
               to="/articles"
@@ -117,15 +119,18 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-10 z-10"
-        >
-          <div className="w-5 h-8 border-2 border-plasma/40 rounded-full flex justify-center pt-1">
-            <div className="w-1 h-2 bg-plasma rounded-full" />
-          </div>
-        </motion.div>
+        <div className="absolute bottom-10 z-10 flex flex-col items-center gap-2">
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-1.5 h-1.5 rounded-full bg-plasma/60"
+          />
+          <motion.div
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+            className="w-1.5 h-1.5 rounded-full bg-plasma/40"
+          />
+        </div>
       </section>
 
       {/* Section Divider */}
@@ -153,16 +158,19 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="h-full"
           >
-            <GlassCard glowColor="plasma">
+            <GlassCard glowColor="plasma" className="h-full flex flex-col">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">🧠</span>
-                <h3 className="text-xl font-bold text-plasma">{t('projects.medDualBrain.title')}</h3>
+                <span className="text-2xl">📚</span>
+                <h3 className="text-xl font-bold text-plasma">{t('projects.bookManagement.title')}</h3>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">{t('projects.medDualBrain.desc')}</p>
-              <div className="mt-4 flex gap-2 flex-wrap">
-                {['RAG', 'Wan2.2-S2V', 'Digital Human', 'Multi-modal'].map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 rounded-md text-xs font-mono bg-plasma/10 text-plasma border border-plasma/20">
+              <p className="text-fg-secondary text-sm leading-relaxed line-clamp-3" title={t('projects.bookManagement.desc')}>
+                {t('projects.bookManagement.desc')}
+              </p>
+              <div className="mt-auto pt-4 flex gap-2 flex-nowrap overflow-hidden">
+                {['Spring Boot 3', 'Vue 3', 'PostgreSQL', 'Docker'].map((tag) => (
+                  <span key={tag} className="px-2 py-0.5 rounded-md text-xs font-mono bg-plasma/10 text-plasma border border-plasma/20 whitespace-nowrap">
                     {tag}
                   </span>
                 ))}
@@ -175,22 +183,34 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="h-full"
           >
-            <GlassCard glowColor="energy">
+            <GlassCard glowColor="energy" className="h-full flex flex-col">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">👗</span>
-                <h3 className="text-xl font-bold text-energy">{t('projects.virtualTryon.title')}</h3>
+                <span className="text-2xl">🎉</span>
+                <h3 className="text-xl font-bold text-energy">{t('projects.eventManagement.title')}</h3>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">{t('projects.virtualTryon.desc')}</p>
-              <div className="mt-4 flex gap-2 flex-wrap">
-                {['3D Modeling', 'Cloth Simulation', 'WebGL', 'SaaS'].map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 rounded-md text-xs font-mono bg-energy/10 text-energy border border-energy/20">
+              <p className="text-fg-secondary text-sm leading-relaxed line-clamp-3" title={t('projects.eventManagement.desc')}>
+                {t('projects.eventManagement.desc')}
+              </p>
+              <div className="mt-auto pt-4 flex gap-2 flex-nowrap overflow-hidden">
+                {['Spring Boot', 'Vue 3', 'Element Plus', 'Uni-App'].map((tag) => (
+                  <span key={tag} className="px-2 py-0.5 rounded-md text-xs font-mono bg-energy/10 text-energy border border-energy/20 whitespace-nowrap">
                     {tag}
                   </span>
                 ))}
               </div>
             </GlassCard>
           </motion.div>
+        </div>
+
+        <div className="text-center mt-8">
+          <Link
+            to="/projects"
+            className="text-sm text-fg-muted hover:text-plasma transition-colors duration-300"
+          >
+            查看全部项目 →
+          </Link>
         </div>
       </section>
 
@@ -277,22 +297,35 @@ export default function Home() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <Link to="/notes/compilers">
-              <GlassCard>
-                <h3 className="text-lg font-bold text-plasma mb-2">📖 {t('notes.compilers.title')}</h3>
-                <p className="text-gray-400 text-sm">{t('notes.compilers.desc')}</p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="h-full">
+            <Link to="/notes/compilers" className="block h-full">
+              <GlassCard className="h-full flex flex-col">
+                <h3 className="text-lg font-bold text-plasma mb-2 line-clamp-2">📖 {t('notes.compilers.title')}</h3>
+                <p className="text-fg-secondary text-sm line-clamp-3 flex-1" title={t('notes.compilers.desc')}>
+                  {t('notes.compilers.desc')}
+                </p>
               </GlassCard>
             </Link>
           </motion.div>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-            <Link to="/notes/software-engineering">
-              <GlassCard>
-                <h3 className="text-lg font-bold text-plasma mb-2">📝 {t('notes.softwareEng.title')}</h3>
-                <p className="text-gray-400 text-sm">{t('notes.softwareEng.desc')}</p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="h-full">
+            <Link to="/notes/software-engineering" className="block h-full">
+              <GlassCard className="h-full flex flex-col">
+                <h3 className="text-lg font-bold text-plasma mb-2 line-clamp-2">📝 {t('notes.softwareEng.title')}</h3>
+                <p className="text-fg-secondary text-sm line-clamp-3 flex-1" title={t('notes.softwareEng.desc')}>
+                  {t('notes.softwareEng.desc')}
+                </p>
               </GlassCard>
             </Link>
           </motion.div>
+        </div>
+
+        <div className="text-center mt-8">
+          <Link
+            to="/notes"
+            className="text-sm text-fg-muted hover:text-plasma transition-colors duration-300"
+          >
+            查看全部笔记 →
+          </Link>
         </div>
       </section>
 

@@ -27,7 +27,10 @@ export default function FusionCore() {
         </Suspense>
       </Canvas>
       {/* Gradient overlay at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-950 to-transparent pointer-events-none" />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
+        style={{ background: 'linear-gradient(to top, var(--bg-base), transparent)' }}
+      />
     </div>
   );
 }

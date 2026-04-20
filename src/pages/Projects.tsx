@@ -7,18 +7,25 @@ export default function Projects() {
 
   const projects = [
     {
-      key: 'medDualBrain',
-      icon: '🧠',
+      key: 'bookManagement',
+      icon: '📚',
       color: 'plasma' as const,
-      tags: ['RAG', 'Wan2.2-S2V', 'Digital Human', 'Multi-modal', 'Medical AI'],
-      links: { github: '#', demo: '#' },
+      tags: ['Spring Boot 3', 'Vue 3', 'PostgreSQL', 'Uni-App', 'Docker'],
+      links: { github: 'https://github.com/HP26666/book-management-system', gitee: undefined as string | undefined, demo: undefined as string | undefined },
     },
     {
-      key: 'virtualTryon',
-      icon: '👗',
+      key: 'eventManagement',
+      icon: '🎉',
       color: 'energy' as const,
-      tags: ['3D Modeling', 'Cloth Simulation', 'WebGL', 'SaaS', 'Physics Engine'],
-      links: { github: '#', demo: '#' },
+      tags: ['Spring Boot', 'Vue 3', 'Element Plus', 'Uni-App', 'MyBatis-Plus'],
+      links: { github: undefined as string | undefined, gitee: 'https://gitee.com/fjy20110/event_management_system_jsjsjds', demo: undefined as string | undefined },
+    },
+    {
+      key: 'studentWorker',
+      icon: '🎓',
+      color: 'plasma' as const,
+      tags: ['Spring Boot 3', 'Vue 3', 'PostgreSQL', 'Docker', 'Element Plus'],
+      links: { github: undefined as string | undefined, gitee: 'https://gitee.com/fjy20110/jxstnu_-student_-worker', demo: undefined as string | undefined },
     },
   ];
 

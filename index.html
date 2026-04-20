@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fusion-Core Blog | 氕氘氚</title>
+    <script>
+      // Prevent FOUC: apply theme before render
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.remove('dark');
+      })();
+    </script>
   </head>
-  <body class="bg-gray-950 text-white">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <svg style="position:absolute;width:0;height:0" aria-hidden="true">
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        <feColorMatrix type="saturate" values="0"/>
+      </filter>
+    </svg>
   </body>
 </html>

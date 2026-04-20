@@ -22,13 +22,17 @@
     "featured": "精选文章"
   },
   "projects": {
-    "medDualBrain": {
-      "title": "Med-DualBrain",
-      "desc": "面向院外预问诊（家庭/通勤场景）的多模态数字人系统，采用 RAG 和 Wan2.2-S2V 技术。AI 驱动的医疗咨询数字人界面。"
+    "bookManagement": {
+      "title": "图书管理系统",
+      "desc": "基于 Spring Boot 3 + Vue 3 + PostgreSQL + Uni-App 的图书管理系统，支持 PC Web 管理端和微信小程序用户端，采用 Docker Compose 部署。"
     },
-    "virtualTryon": {
-      "title": "虚拟试穿 SaaS",
-      "desc": "3D 建模与布料仿真平台。基于物理渲染的实时服装可视化。"
+    "eventManagement": {
+      "title": "校园活动管理系统",
+      "desc": "基于 Spring Boot + Vue 3 + Element Plus + uni-app 的校园活动管理平台（CampusNeuro），涵盖活动发布、报名审核、评价反馈等完整流程。"
+    },
+    "studentWorker": {
+      "title": "学工管理系统",
+      "desc": "面向学院学生工作场景的管理系统，基于 Spring Boot 3 + Vue 3 + PostgreSQL，支持 Docker Compose 部署和移动端适配的管理界面。"
     }
   },
   "notes": {

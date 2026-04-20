@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import GlassCard from '../components/GlassCard';
 
@@ -7,28 +8,24 @@ export default function Teaching() {
 
   const resources = [
     {
-      title: 'Data Structures & Algorithms',
-      titleZh: '数据结构与算法',
-      desc: 'Tutorials and practice problems for fundamental CS concepts.',
-      descZh: '基础计算机科学概念的教程与练习题。',
-      icon: '🔢',
-      tags: ['Binary Trees', 'Graphs', 'Dynamic Programming'],
+      slug: 'ai-coding-agent',
+      title: 'AI Coding Agent 实战进阶',
+      titleZh: 'AI Coding Agent 实战进阶',
+      desc: '让 AI 成为你的全栈开发搭档：从 Vibe Coding 工作流到实战项目落地的完整指南。',
+      descZh: '让 AI 成为你的全栈开发搭档：从 Vibe Coding 工作流到实战项目落地的完整指南。',
+      icon: '🚀',
+      tags: ['AI Agent', 'Vibe Coding', 'Full Stack'],
+      badge: '教程',
     },
     {
-      title: 'Web Development Basics',
-      titleZh: 'Web 开发基础',
-      desc: 'Introduction to HTML, CSS, JavaScript, and modern frameworks.',
-      descZh: 'HTML、CSS、JavaScript 及现代框架入门。',
-      icon: '🌐',
-      tags: ['React', 'TypeScript', 'Tailwind'],
-    },
-    {
-      title: 'Machine Learning 101',
-      titleZh: '机器学习入门',
-      desc: 'Beginner-friendly introduction to ML concepts and PyTorch basics.',
-      descZh: '面向初学者的机器学习概念与 PyTorch 基础。',
-      icon: '🤖',
-      tags: ['PyTorch', 'Neural Networks', 'NLP'],
+      slug: 'project-adaptation-analysis',
+      title: '竞赛项目 AI Coding Agent 适配度分析',
+      titleZh: '竞赛项目 AI Coding Agent 适配度分析',
+      desc: '基于 172 个软件应用类竞赛项目的系统分析，判断哪些项目最适合用 AI Coding Agent 开发。',
+      descZh: '基于 172 个软件应用类竞赛项目的系统分析，判断哪些项目最适合用 AI Coding Agent 开发。',
+      icon: '📊',
+      tags: ['Data Analysis', 'Project Evaluation', 'Best Practices'],
+      badge: '分析报告',
     },
     {
       title: 'AI Coding Tools',
